@@ -1,0 +1,26 @@
+{
+  "name": "project_javascript",
+  "version": "0.1.0",
+  "description": "Compartir fotos es la nueva comunidad Litus",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "project",
+    "de",
+    "javascript"
+  ],
+  "author": "@Carles",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.2",
+    "materialize-css": "^0.100.2",
+    "pug": "^2.0.0-rc.4"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^3.1.0"
+  }
+}
