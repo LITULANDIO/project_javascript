@@ -6,15 +6,15 @@ app.set('view engine', 'pug')
 app.use(express.static('public')) // cualquier usuario pueda acceder a ella
 
 app.get('/', function (req, res) {
-  res.render('index')
+  res.render('index', {title: 'LitusGram'})
 })
 
 app.get('/signup', function (req, res) {
-  res.render('index')
+  res.render('index', {title: 'LitusGram - Signup'})
 })
 
 app.get('/signin', function (req, res) {
-  res.render('index')
+  res.render('index', {title: 'LitusGram - Signin'})
 })
 
 app.listen(3000, function (err) {

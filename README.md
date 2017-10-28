@@ -1,4 +1,4 @@
-##Project Javascript
+## Project Javascript
 
 Para trabajar con node, instalaremos la última versión, y en consola comprovaremos haciendo node -v para saver de qué versión disponemos y asegurarnos que se ha instalado correctamente.
 
@@ -138,9 +138,63 @@ npm i --save-dev watchify
 npm install --save yo-yo
 ```
 
+**Libreria empy-element**
 Le pasamos un elemento del doom y lo que va ha hacer es borrar todos los elementos que tenga.
 
 ```
 npm install --save empty-element
 
+```
+
+**Libreria title**
+Para hacer uso de la propiedad title como objeto en el render, y pueda cambiarse en la pestaña del navegador sin tener que recargar la página
+```
+npm i --save title
+```
+
+Cómo obtener el cdn para poder hacer uso de los iconos de FontAwesome: http://fontawesome.io/examples/
+ Insertar entre el <head> --> aquí <--</head>
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
+
+**Libreria moment.js**
+
+Para hacer uso de las fechas y hora
+
+```
+#Instalar:  npm i --save moment
+
+#Hacer uso: const moment = require('moment')
+
+#Configuración para idioma español: 
+
+require('moment/locale/es')
+
+moment.locale('es')
+```
+
+
+**Libreria format.js**
+Para internacionalizar las fechas:
+
+```
+npm install intl-relativeformat --save
+```
+
+**Libreria intl.js**
+Para que safari puedea soportar el format.js incluiremos un "polyfill" ésta librería, e incluiremos 2 requires.
+
+```
+npm install intl --save
+```
+
+require('intl/locale-data/jsonp/en-US.js')
+require('intl/locale-data/jsonp/es.js')
+
+#configuración:
+```
+if (!window.Intl) {
+  window.Intl = require('intl')
+  require('intl/locale-data/jsonp/en-US.js')
+  require('intl/locale-data/jsonp/es.js')
+}
 ```
