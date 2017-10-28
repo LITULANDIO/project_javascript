@@ -1,4 +1,8 @@
 
 const swal = require('sweetalert2')
+const page = require('page')
 
-swal('Hola litus')
+require('./home_page')
+require('./signup')
+
+page()

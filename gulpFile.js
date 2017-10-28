@@ -5,6 +5,7 @@ var babelify = require('babelify')
 var babel = require('babel-core')
 var browserify = require('browserify')
 var source = require('vinyl-source-stream')
+var watchify = require('watchify')
 
 gulp.task('styles', function () {
   gulp
@@ -20,13 +21,28 @@ gulp.task('assets', function () {
 		.pipe(gulp.dest('public'))
 })
 
-gulp.task('scripts', function () {
-  browserify('./src/index.js')
-    .transform(babelify)
+function compile (watch) {
+  var bundle = watchify(browserify('./src/index.js', {debug: true}))
+
+  function rebundle () {
+    bundle
+	.transform(babelify)
     .bundle()
     .pipe(source('index.js'))
     .pipe(rename('app.js'))
     .pipe(gulp.dest('public'))
-})
+  }
+  if (watch) { // cada vez que hayan cambios utilizara esta funcion
+    bundle.on('update', function () {
+      console.log('---> Bunding ...')
+      rebundle()
+    })
+  }
+  rebundle()
+}
 
-gulp.task('default', ['styles', 'assets', 'scripts'])
+gulp.task('build', function () { return compile() })
+
+gulp.task('watch', function () { return compile(true) })
+
+gulp.task('default', ['styles', 'assets', 'build'])
