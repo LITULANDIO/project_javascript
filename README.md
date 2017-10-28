@@ -67,3 +67,80 @@ Primero importamos la ruta donde estar instalado la dependencia mediante un impo
 @import 'node_modules/materialize-css/sass/materialize.scss';
 
 Para crear nuestro archivo con todos los estilos de materialize, bastará en consola utilizar "gulp".
+
+Gulp nos puede crear automáticamente la carpeta public: y podremos indicarle que se guarden todos los archivos que queramos, por defecto css y jss se nos guardarà en public.  
+
+```
+gulp.task('assets', function(){
+    gulp
+        .src('assets/*')
+        .pipe(gulp.dest('public'))
+})
+
+gulp.task('default', ['styles', 'assets'])
+```
+
+Generar favicon para nuestra página: 
+
+https://www.favicon-generator.org/
+
+**Fix** para agregar Javascript en el cliente instalaremos:
+
+```
+npm i --save-dev babel-preset-es2015
+```
+
+Y luego configuramos en nuestro archivo GULP:
+
+```
+gulp.task('scripts', function () {
+  browserify('./src/index.js')
+    .transform(babel, {presets: ["es2015"]})
+    .bundle()
+    .pipe(source('index.js'))
+});
+```
+
+Instalaremos Browserify juntamente con babelify para poder trabajar con babael.
+**Browserify** nos permite agrupar en el navegador todas las dependencias requeridas.
+
+```
+npm i --save-dev vinyl-source-stream
+```
+
+**Libreria page.js**
+
+Para poder navegar con las rutas sin tener que recargar la página
+
+```
+npm install --save page
+```
+
+Como incluir comandos con scripts, imprescindible al subir nuestro proyecto web a un servidor, y facilitarnos la tarea al hacer un "npm install" 
+
+Para ello nos dirigimos a nuestro archivo package.json
+```
+"scripts": {
+    "build": "gulp",
+```
+
+Nos automatiza el que pueda crear automaticamente nuestras carpetas index, assets, sin tener que estar corriendo el comando "gulp"
+
+Automatizar el build de nuestro proyecto
+
+```
+npm i --save-dev watchify
+```
+
+**Libreria yo-yo.js**--> sigue un poco la filosofia de react, facilita mucho lo que es escribir templates, y poder transformarlos en objetos del doom. 
+
+```
+npm install --save yo-yo
+```
+
+Le pasamos un elemento del doom y lo que va ha hacer es borrar todos los elementos que tenga.
+
+```
+npm install --save empty-element
+
+```
