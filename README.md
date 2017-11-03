@@ -174,8 +174,8 @@ moment.locale('es')
 
 
 **Libreria format.js**
-Para internacionalizar las fechas:
-
+Para internacionalizar las fechas: "cambiar el idioma" 
+https://formatjs.io/github/#core
 ```
 npm install intl-relativeformat --save
 ```
@@ -198,3 +198,36 @@ if (!window.Intl) {
   require('intl/locale-data/jsonp/es.js')
 }
 ```
+
+**Para Internacionalizar los textos a otro idioma:** 
+```
+npm install --save intl-messageformat
+```
+https://github.com/yahoo/intl-messageformat
+
+Creamos un documento con clave valor, por tantos idiomas queramos traducir:
+
+```
+module.exports = {
+  'likes': '{likes, number} me gusta',
+  'logout': 'Salir',
+  'english': 'Inglés',
+  'spanish': 'Español',
+  'signup.subheading': 'Regístrate para ver fotos de tus amigos en LitusGram',
+```
+
+En la vista donde vaya el texto lo sustituimos por la clave ejemplo:
+
+* translate es el módulo que requerimos desde el archivo index:
+
+var translate =  require(../translate)
+```
+$translate.message(${english}) --> ésto es equivalente a "Inglés"
+```
+
+**Librería superagent** para solicitudes HTTP para nuestra API.
+
+```
+npm install --save superagent
+```
+

@@ -5,5 +5,6 @@ const page = require('page')
 require('./home_page')
 require('./signup')
 require('./signin')
+require('./footer')
 
 page()
