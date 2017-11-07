@@ -231,3 +231,27 @@ $translate.message(${english}) --> ésto es equivalente a "Inglés"
 npm install --save superagent
 ```
 
+**Librería Axios**
+Nos va a permitir realizar peticions HTTP mediante promesas
+
+```
+npm install --save axios
+```
+
+http://github.com/mzabriske/axios
+
+**Fetch es una librería que ya viene instalada por defecto**
+
+window.fetch es un polyfill para poder soportar en todos los navegadores
+
+**Librería Multer**
+
+Herramientas para poder hacer un upload de una imagen
+
+```
+npm install --save multer
+
+npm install --save file-extension
+```
+
+https://www.npmjs.com/package/multer
