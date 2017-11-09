@@ -73,26 +73,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 var yo = require('yo-yo')
 var translate = require('../translate')
 var header = require('../header')

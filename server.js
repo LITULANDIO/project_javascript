@@ -66,6 +66,36 @@ app.post('/api/pictures', function (req, res) {
   })
 })
 
+app.get('/api/user/:username', function (req, res) {
+  const user = {
+    username: 'Litus',
+    avatar: 'http://www.forfreeimages.com/imagenes/avatar/avatar_g/avatar.jpg',
+    pictures: [
+      {
+        id: 1,
+        src: 'https://k38.kn3.net/taringa/2/4/3/0/6/6/13/soyluuchoox/A1D.jpg?1843',
+        likes: 23
+
+      },
+      {
+        id: 2,
+        src: 'http://cdn.traveler.es/uploads/images/thumbs/es/trav/2/s/2017/13/cinco_paisajes_para_disfrutar_de_la_primavera_en_espana_996_570x.jpg',
+        likes: 5
+      },
+      {
+        id: 3,
+        src: 'https://i.pinimg.com/originals/c0/9d/f8/c09df8116570b19381b905653bca9341.jpg',
+        likes: 1
+      }
+    ]
+  }
+  res.send(user)
+})
+
+app.get('/:username', function (req, res) {
+  res.render('index', {title: 'LitusGram - ${req.params.username}'})
+})
+
 app.listen(3000, function (err) {
   if (err) return console.log('Hay un error'), process.exit(1)
 

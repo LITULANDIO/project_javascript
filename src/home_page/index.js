@@ -4,6 +4,7 @@ var template = require('./template')
 var title = require('title')
 var request = require('superagent')
 var header = require('../header')
+var axios = require('axios')
 
 page('/', header, loadPictures, function (ctx, next) {
   title('LitusGram')
