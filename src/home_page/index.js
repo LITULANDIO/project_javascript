@@ -6,12 +6,21 @@ var request = require('superagent')
 var header = require('../header')
 var axios = require('axios')
 
-page('/', header, loadPictures, function (ctx, next) {
+page('/', header, loading, loadPictures, function (ctx, next) {
   title('LitusGram')
   var main = document.getElementById('main-container')
 
   empty(main).appendChild(template(ctx.pictures))
 })
+
+// ctx --> recoge la información, lo utilizamos para ir pasando datos entre middlewares
+// next --> es un apuntador al siguiente middleware
+function loading (ctx, next) {
+  var el = document.createElement('div')
+  el.classList.add('loader')
+  document.getElementById('main-container').appendChild(el)
+  next()
+}
 
 function loadPictures (ctx, next) {
   request

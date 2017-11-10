@@ -52,9 +52,7 @@ app.get('/api/pictures', function (req, res, next) {
      createAt: new Date().setDate(new Date().getDate() - 10)
    }
  ]
-  setTimeout(function () {
-    res.send(pictures)
-  }, 2000)
+  setTimeout(() => res.send(pictures), 2000)
 })
 
 app.post('/api/pictures', function (req, res) {
@@ -93,6 +91,10 @@ app.get('/api/user/:username', function (req, res) {
 })
 
 app.get('/:username', function (req, res) {
+  res.render('index', {title: 'LitusGram - ${req.params.username}'})
+})
+
+app.get('/:username/:id', function (req, res) {
   res.render('index', {title: 'LitusGram - ${req.params.username}'})
 })
 
